@@ -31,4 +31,4 @@ app.get('/', async (req, res) => {
 	res.json(response.data);
 });
 
-app.listen('9000', () => console.log('Running...'));
+app.listen(process.env.PORT, () => console.log('Running...'));
