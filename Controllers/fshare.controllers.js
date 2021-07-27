@@ -27,7 +27,9 @@ const getlink = async (req, res) => {
 		return res.status(404).json(err.response.data);
 	}
 
-	const short = await shorturl(response.data.location);
+	const short = await shorturl(
+		response.data.location.replace('http://', 'https://')
+	);
 	console.log(short);
 };
 
