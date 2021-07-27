@@ -30,7 +30,8 @@ const getlink = async (req, res) => {
 	const short = await shorturl(
 		response.data.location.replace('http://', 'https://')
 	);
-	console.log(short);
+
+	res.json({ location: short });
 };
 
 module.exports = { getlink };
