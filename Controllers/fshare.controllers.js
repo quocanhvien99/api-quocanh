@@ -31,7 +31,10 @@ const getlink = async (req, res) => {
 		response.data.location.replace('http://', 'https://')
 	);
 
-	res.json({ location: short });
+	res.json({
+		location: short.shortenedUrl,
+		filename: response.data.location.split('/')[5],
+	});
 };
 
 module.exports = { getlink };
