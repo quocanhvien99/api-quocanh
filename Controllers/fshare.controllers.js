@@ -1,4 +1,5 @@
 const axios = require('axios');
+const shorturl = require('../Utils/shorturl');
 
 const getlink = async (req, res) => {
 	let response = await axios.post('https://api.fshare.vn/api/user/login', {
@@ -26,7 +27,8 @@ const getlink = async (req, res) => {
 		return res.status(404).json(err.response.data);
 	}
 
-	res.json(response.data);
+	const short = await shorturl(response.data.location);
+	console.log(short);
 };
 
 module.exports = { getlink };
